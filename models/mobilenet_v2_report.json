@@ -1,0 +1,229 @@
+{
+  "arch": "mobilenet_v2",
+  "epochs_run": 9,
+  "val_balanced_accuracy": 0.9938,
+  "test_accuracy": 0.9938,
+  "test_balanced_accuracy": 0.9938,
+  "confusion_matrix": [
+    [
+      78,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      80,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      80,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      80,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      80,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      80,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      80,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      78
+    ]
+  ],
+  "classes": [
+    "normal",
+    "atrial_flutter",
+    "tachycardia",
+    "bradycardia",
+    "svt",
+    "afib",
+    "vfib",
+    "vpb"
+  ],
+  "per_class": {
+    "normal": {
+      "support": 80,
+      "precision": 1.0,
+      "recall": 0.975,
+      "f1": 0.9873
+    },
+    "atrial_flutter": {
+      "support": 80,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "tachycardia": {
+      "support": 80,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "bradycardia": {
+      "support": 80,
+      "precision": 0.9524,
+      "recall": 1.0,
+      "f1": 0.9756
+    },
+    "svt": {
+      "support": 80,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "afib": {
+      "support": 80,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "vfib": {
+      "support": 80,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "vpb": {
+      "support": 80,
+      "precision": 1.0,
+      "recall": 0.975,
+      "f1": 0.9873
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.5541843751072884,
+      "val_loss": 0.10271922126412392,
+      "val_accuracy": 0.99375,
+      "val_balanced_accuracy": 0.99375
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.32746308371424676,
+      "val_loss": 0.07013698983937502,
+      "val_accuracy": 0.99375,
+      "val_balanced_accuracy": 0.99375
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.30473527356982233,
+      "val_loss": 0.07624208517372608,
+      "val_accuracy": 0.9890625,
+      "val_balanced_accuracy": 0.9890625
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.2949442222714424,
+      "val_loss": 0.07462114188820124,
+      "val_accuracy": 0.99375,
+      "val_balanced_accuracy": 0.99375
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.29400266602635383,
+      "val_loss": 0.07808401305228471,
+      "val_accuracy": 0.99375,
+      "val_balanced_accuracy": 0.99375
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.2901361295580864,
+      "val_loss": 0.06996855698525906,
+      "val_accuracy": 0.99375,
+      "val_balanced_accuracy": 0.99375
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.2884678556025028,
+      "val_loss": 0.08143782448023558,
+      "val_accuracy": 0.99375,
+      "val_balanced_accuracy": 0.99375
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.28368224173784257,
+      "val_loss": 0.07944351211190223,
+      "val_accuracy": 0.99375,
+      "val_balanced_accuracy": 0.99375
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.28277110159397123,
+      "val_loss": 0.07380165942013264,
+      "val_accuracy": 0.99375,
+      "val_balanced_accuracy": 0.99375
+    }
+  ],
+  "split_by": "seed_range",
+  "test_records": [],
+  "args": {
+    "data": "data_synth",
+    "arch": "mobilenet_v2",
+    "epochs": 12,
+    "batch_size": 32,
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "size": 160,
+    "workers": 4,
+    "patience": 8,
+    "out": "models",
+    "seed": 17
+  }
+}

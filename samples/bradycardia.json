@@ -1,0 +1,15 @@
+{
+  "key": "bradycardia",
+  "label": "bradycardia",
+  "name": "Sinus bradycardia",
+  "short": "Bradycardia",
+  "severity": "monitor",
+  "signature": "Rate < 60 bpm, regular RR, narrow QRS, P waves preserved.",
+  "fs": 360.0,
+  "duration_s": 10.0,
+  "seed": 1,
+  "source": "synthetic",
+  "px_per_mm": 10.0,
+  "dpi": 254,
+  "nominal_bpm": 47.2
+}

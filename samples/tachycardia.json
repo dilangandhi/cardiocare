@@ -1,0 +1,15 @@
+{
+  "key": "tachycardia",
+  "label": "tachycardia",
+  "name": "Sinus tachycardia",
+  "short": "Tachycardia",
+  "severity": "monitor",
+  "signature": "Rate > 100 bpm, regular RR, narrow QRS, P waves preserved.",
+  "fs": 360.0,
+  "duration_s": 10.0,
+  "seed": 2,
+  "source": "synthetic",
+  "px_per_mm": 10.0,
+  "dpi": 254,
+  "nominal_bpm": 120.3
+}

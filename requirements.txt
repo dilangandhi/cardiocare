@@ -1,0 +1,16 @@
+# Runtime dependencies for the inference service.
+# Deliberately excludes torch: serving uses onnxruntime (~50 MB) rather than
+# torch (~900 MB), which keeps the container small enough for a free tier.
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+numpy>=1.26,<3
+scipy>=1.11
+# Tested on 4.x and 5.x. OpenCV 5 tightened argument handling -- cv2.resize
+# with a None size and cv2.normalize with a None destination both raise
+# TypeError there -- so app/core/digitize.py avoids those loose forms entirely
+# rather than pinning to an old major version.
+opencv-python-headless>=4.9
+pillow>=10.2
+reportlab>=4.1
+onnxruntime>=1.17

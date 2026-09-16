@@ -1,0 +1,15 @@
+{
+  "key": "svt",
+  "label": "svt",
+  "name": "Supraventricular tachycardia",
+  "short": "SVT",
+  "severity": "urgent",
+  "signature": "Very fast regular rate, short/narrow QRS, P waves absent, distorted T.",
+  "fs": 360.0,
+  "duration_s": 10.0,
+  "seed": 4,
+  "source": "synthetic",
+  "px_per_mm": 10.0,
+  "dpi": 254,
+  "nominal_bpm": 231.0
+}

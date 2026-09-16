@@ -1,0 +1,30 @@
+{
+  "arch": "mobilenet_v2",
+  "input_size": 160,
+  "classes": [
+    "normal",
+    "atrial_flutter",
+    "tachycardia",
+    "bradycardia",
+    "svt",
+    "afib",
+    "vfib",
+    "vpb"
+  ],
+  "opset": 17,
+  "sha256": "fcb870480d28a0d313ad8ea792bbf5ce069f558e4e8eaf0c99d8d75bc592d135",
+  "training_data": "synthetic",
+  "val_balanced_accuracy": 0.99375,
+  "normalisation": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  }
+}

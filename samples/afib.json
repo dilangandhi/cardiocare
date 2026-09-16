@@ -1,0 +1,15 @@
+{
+  "key": "afib",
+  "label": "afib",
+  "name": "Atrial fibrillation",
+  "short": "AFib",
+  "severity": "urgent",
+  "signature": "No P waves, fibrillatory baseline, irregularly irregular RR.",
+  "fs": 360.0,
+  "duration_s": 10.0,
+  "seed": 6,
+  "source": "synthetic",
+  "px_per_mm": 10.0,
+  "dpi": 254,
+  "nominal_bpm": 127.3
+}

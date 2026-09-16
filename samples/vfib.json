@@ -1,0 +1,14 @@
+{
+  "key": "vfib",
+  "label": "vfib",
+  "name": "Ventricular fibrillation",
+  "short": "VFib",
+  "severity": "critical",
+  "signature": "No identifiable QRS, chaotic undulating baseline, no organised rate.",
+  "fs": 360.0,
+  "duration_s": 10.0,
+  "seed": 5,
+  "source": "synthetic",
+  "px_per_mm": 10.0,
+  "dpi": 254
+}

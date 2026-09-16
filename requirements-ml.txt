@@ -1,0 +1,10 @@
+# Training and dataset preparation. Not needed to run the service.
+-r requirements.txt
+torch>=2.2
+torchvision>=0.17
+# torch >= 2.5 routes ONNX export through onnxscript; older versions bundle it.
+onnxscript>=0.1
+wfdb>=4.1
+scikit-learn>=1.4
+matplotlib>=3.8
+tqdm>=4.66

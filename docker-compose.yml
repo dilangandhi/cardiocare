@@ -1,0 +1,12 @@
+services:
+  cardiocare:
+    build: .
+    ports:
+      - "7860:7860"
+    volumes:
+      # Mount trained weights without rebuilding the image.
+      - ./models:/app/models:ro
+    environment:
+      CARDIOCARE_MODEL_DIR: /app/models
+      CARDIOCARE_CONFIDENCE_FLOOR: "0.45"
+      CARDIOCARE_CNN_WEIGHT: "0.60"

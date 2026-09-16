@@ -1,0 +1,15 @@
+{
+  "key": "normal",
+  "label": "normal",
+  "name": "Normal sinus rhythm",
+  "short": "Normal",
+  "severity": "normal",
+  "signature": "Regular RR, upright P before each QRS, narrow QRS.",
+  "fs": 360.0,
+  "duration_s": 10.0,
+  "seed": 7,
+  "source": "synthetic",
+  "px_per_mm": 10.0,
+  "dpi": 254,
+  "nominal_bpm": 83.3
+}

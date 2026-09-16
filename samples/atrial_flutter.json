@@ -1,0 +1,15 @@
+{
+  "key": "atrial_flutter",
+  "label": "atrial_flutter",
+  "name": "Atrial flutter",
+  "short": "Flutter",
+  "severity": "urgent",
+  "signature": "Sawtooth flutter waves replacing the isoelectric baseline.",
+  "fs": 360.0,
+  "duration_s": 10.0,
+  "seed": 1,
+  "source": "synthetic",
+  "px_per_mm": 10.0,
+  "dpi": 254,
+  "nominal_bpm": 74.0
+}

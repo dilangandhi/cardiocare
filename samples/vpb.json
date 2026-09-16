@@ -1,0 +1,15 @@
+{
+  "key": "vpb",
+  "label": "vpb",
+  "name": "Ventricular premature beat",
+  "short": "VPB",
+  "severity": "monitor",
+  "signature": "Wide premature QRS, absent P, discordant T, compensatory pause.",
+  "fs": 360.0,
+  "duration_s": 10.0,
+  "seed": 0,
+  "source": "synthetic",
+  "px_per_mm": 10.0,
+  "dpi": 254,
+  "nominal_bpm": 82.6
+}

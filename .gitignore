@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Datasets and checkpoints are large; keep them out of git.
+data/
+*.pt
+*.pth
+*.onnx
+!models/.gitkeep
+
+docs/figures/
+docs/evaluation.json
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+data_synth/
