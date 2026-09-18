@@ -15,6 +15,7 @@ COPY frontend/ ./frontend/
 COPY ml/ ./ml/
 COPY models/ ./models/
 COPY samples/ ./samples/
+COPY healthcheck.py ./healthcheck.py
 
 # Build the reference gallery at image-build time so the demo works offline.
 RUN python ml/make_samples.py
@@ -30,7 +31,7 @@ ENV PORT=7860
 EXPOSE 7860
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s \
-  CMD python -c "import os,urllib.request;urllib.request.urlopen(f\"http://localhost:{os.environ.get('PORT','7860')}/api/health\")"
+  CMD ["python", "/app/healthcheck.py"]
 
 # Shell form so ${PORT} is expanded at container start rather than build time.
 CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-7860} --app-dir backend
