@@ -64,7 +64,7 @@ it.** The CNN slots in afterwards.
 ### Docker (recommended)
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/cardiocare.git
+git clone https://github.com/dilangandhi/cardiocare.git
 cd cardiocare
 docker compose up --build
 ```
