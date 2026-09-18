@@ -42,8 +42,9 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT), str(ROOT / "backend")]
 
 from app.core.render import PaperSpec, add_photo_realism, render  # noqa: E402
-from app.core.taxonomy import KEYS                                # noqa: E402
-from ml.synth import generate                                     # noqa: E402
+from app.core.taxonomy import KEYS  # noqa: E402
+
+from ml.synth import generate  # noqa: E402
 
 FS = 360.0
 SPEC = PaperSpec(px_per_mm=10.0, height_mm=40.0)

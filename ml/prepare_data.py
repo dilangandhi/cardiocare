@@ -33,7 +33,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT), str(ROOT / "backend")]
 
 from app.core.render import PaperSpec, add_photo_realism, render  # noqa: E402
-from app.core.taxonomy import CLASSES, KEYS                       # noqa: E402
+from app.core.taxonomy import KEYS  # noqa: E402
 
 TARGET_FS = 360.0
 PAPER = PaperSpec(px_per_mm=10.0, height_mm=40.0)
@@ -334,7 +334,7 @@ def main() -> int:
     for key in KEYS:
         row = [counts[s][key] for s in ("train", "val", "test")]
         print(f"  {key:18s}" + "".join(f"{v:9d}" for v in row))
-        for split, v in zip(("train", "val", "test"), row):
+        for split, v in zip(("train", "val", "test"), row, strict=True):
             if v == 0:
                 empty.append(f"{key}/{split}")
     print("  " + "-" * 45)

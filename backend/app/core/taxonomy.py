@@ -13,7 +13,6 @@ written with a leading ``(`` (e.g. ``(AFIB``) exactly as they appear in the
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Optional
 
 
 @dataclass(frozen=True)
@@ -174,7 +173,7 @@ NAMES: tuple[str, ...] = tuple(c.name for c in CLASSES)
 SEVERITY_ORDER = {"normal": 0, "monitor": 1, "urgent": 2, "critical": 3}
 
 
-def get(ref) -> Optional[ArrhythmiaClass]:
+def get(ref) -> ArrhythmiaClass | None:
     """Look a class up by key, legacy letter code, or integer index."""
     if isinstance(ref, ArrhythmiaClass):
         return ref

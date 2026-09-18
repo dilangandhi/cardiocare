@@ -171,7 +171,7 @@ def fuse(
         combined = CNN_WEIGHT * np.asarray(cnn_probs, float) + (1.0 - CNN_WEIGHT) * rule_vec
         cnn_key = KEYS[int(np.argmax(cnn_probs))]
         rule_key = rule_result["key"]
-        cnn_dist = {k: float(v) for k, v in zip(KEYS, cnn_probs)}
+        cnn_dist = {k: float(v) for k, v in zip(KEYS, cnn_probs, strict=True)}
         if cnn_key == rule_key:
             agreement = "corroborated"
             note = (

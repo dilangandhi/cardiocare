@@ -236,7 +236,7 @@ def _runs(col: np.ndarray) -> list:
     breaks = np.flatnonzero(np.diff(idx) > 1)
     starts = np.r_[idx[0], idx[breaks + 1]]
     ends = np.r_[idx[breaks], idx[-1]]
-    return list(zip(starts.tolist(), ends.tolist()))
+    return list(zip(starts.tolist(), ends.tolist(), strict=True))
 
 
 def extract_trace(mask: np.ndarray) -> tuple[np.ndarray, float]:

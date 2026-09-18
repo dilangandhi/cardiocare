@@ -118,7 +118,7 @@ def build_transforms(size: int):
     return train, eval_tf
 
 
-def balanced_accuracy(cm: "np.ndarray") -> float:
+def balanced_accuracy(cm: np.ndarray) -> float:
     recalls = []
     for i in range(cm.shape[0]):
         total = cm[i].sum()
@@ -140,7 +140,7 @@ def evaluate(model, loader, device, num_classes: int = NUM_CLASSES):
         n += y.size(0)
         p = torch.softmax(logits, dim=1)
         pred = p.argmax(1)
-        for t, q in zip(y.cpu().numpy(), pred.cpu().numpy()):
+        for t, q in zip(y.cpu().numpy(), pred.cpu().numpy(), strict=True):
             cm[t, q] += 1
         probs_all.append(p.cpu().numpy())
         labels_all.append(y.cpu().numpy())

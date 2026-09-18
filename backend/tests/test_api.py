@@ -19,18 +19,18 @@ sys.path[:0] = [str(ROOT), str(ROOT / "backend")]
 
 pytest.importorskip("fastapi", reason="fastapi not installed")
 
-from app.core.render import PaperSpec, render   # noqa: E402
-from app.core.taxonomy import KEYS              # noqa: E402
-from ml.synth import generate                   # noqa: E402
+from app.core.render import PaperSpec, render  # noqa: E402
+from app.core.taxonomy import KEYS  # noqa: E402
+
+from ml.synth import generate  # noqa: E402
 
 FS = 360.0
 SPEC = PaperSpec(px_per_mm=10.0)
 
 @pytest.fixture(scope="module")
 def client():
-    from fastapi.testclient import TestClient
-
     from app.main import app
+    from fastapi.testclient import TestClient
 
     return TestClient(app)
 

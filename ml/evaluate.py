@@ -24,14 +24,14 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT), str(ROOT / "backend")]
 
-from app.core import rules                        # noqa: E402
-from app.core.signal_engine import analyse        # noqa: E402
-from app.core.taxonomy import KEYS, NUM_CLASSES   # noqa: E402
+from app.core import rules  # noqa: E402
+from app.core.signal_engine import analyse  # noqa: E402
+from app.core.taxonomy import KEYS, NUM_CLASSES  # noqa: E402
 
 
 def confusion(true, pred, n=NUM_CLASSES):
     cm = np.zeros((n, n), dtype=int)
-    for t, p in zip(true, pred):
+    for t, p in zip(true, pred, strict=True):
         cm[t, p] += 1
     return cm
 
@@ -76,7 +76,6 @@ def evaluate_cnn(data: Path, checkpoint: Path, size: int, batch: int):
     import torch
     from torch.utils.data import DataLoader
     from torchvision import datasets, transforms
-
     from train import build_model
 
     ckpt = torch.load(checkpoint, map_location="cpu")
@@ -115,14 +114,18 @@ def plot_confusion(cm, title, path):
     im = ax.imshow(norm, cmap="Blues", vmin=0, vmax=1)
     ax.set_xticks(range(len(KEYS)), KEYS, rotation=45, ha="right", fontsize=8)
     ax.set_yticks(range(len(KEYS)), KEYS, fontsize=8)
-    ax.set_xlabel("predicted"); ax.set_ylabel("true"); ax.set_title(title, fontsize=11)
+    ax.set_xlabel("predicted")
+    ax.set_ylabel("true")
+    ax.set_title(title, fontsize=11)
     for i in range(len(KEYS)):
         for j in range(len(KEYS)):
             if cm[i, j]:
                 ax.text(j, i, str(cm[i, j]), ha="center", va="center", fontsize=7,
                         color="white" if norm[i, j] > 0.55 else "#222")
     fig.colorbar(im, ax=ax, fraction=0.045, label="recall")
-    fig.tight_layout(); fig.savefig(path, dpi=160); plt.close(fig)
+    fig.tight_layout()
+    fig.savefig(path, dpi=160)
+    plt.close(fig)
 
 
 def plot_roc(true, probs, title, path):
@@ -142,9 +145,13 @@ def plot_roc(true, probs, title, path):
         aucs[key] = round(float(a), 4)
         ax.plot(fpr, tpr, lw=1.4, label=f"{key} ({a:.3f})")
     ax.plot([0, 1], [0, 1], "k--", lw=0.8, alpha=0.5)
-    ax.set_xlabel("false positive rate"); ax.set_ylabel("true positive rate")
-    ax.set_title(title, fontsize=11); ax.legend(fontsize=7.5, loc="lower right")
-    fig.tight_layout(); fig.savefig(path, dpi=160); plt.close(fig)
+    ax.set_xlabel("false positive rate")
+    ax.set_ylabel("true positive rate")
+    ax.set_title(title, fontsize=11)
+    ax.legend(fontsize=7.5, loc="lower right")
+    fig.tight_layout()
+    fig.savefig(path, dpi=160)
+    plt.close(fig)
     return aucs
 
 
@@ -159,7 +166,8 @@ def main() -> int:
     args = ap.parse_args()
 
     data = Path(args.data)
-    figs = Path(args.out); figs.mkdir(parents=True, exist_ok=True)
+    figs = Path(args.out)
+    figs.mkdir(parents=True, exist_ok=True)
     meta_path = data / "dataset.json"
     meta = json.loads(meta_path.read_text()) if meta_path.exists() else {}
     report = {"split_by": meta.get("split_by"), "test_records": meta.get("record_assignment", {}).get("test")}

@@ -488,9 +488,9 @@ def classify(m: Measurements) -> dict:
                 "probability": float(p),
                 "evidence": v.evidence,
             }
-            for v, p in zip(verdicts, probs)
+            for v, p in zip(verdicts, probs, strict=True)
         ],
-        "distribution": {v.key: float(p) for v, p in zip(verdicts, probs)},
+        "distribution": {v.key: float(p) for v, p in zip(verdicts, probs, strict=True)},
     }
 
 

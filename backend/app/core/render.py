@@ -123,7 +123,7 @@ def render(
     ys = np.clip(ys, 1, h - 2)
 
     if len(xs) > 1:
-        draw.line(list(zip(xs.tolist(), ys.tolist())), fill=TRACE, width=trace_width, joint="curve")
+        draw.line(list(zip(xs.tolist(), ys.tolist(), strict=True)), fill=TRACE, width=trace_width, joint="curve")
 
     return img
 
