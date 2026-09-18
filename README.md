@@ -4,6 +4,7 @@
 
 Upload a photo of an ECG printout or a raw signal file and get a classification
 with the measurements and reasoning that support it.
+**[Live demo →](https://cardiocare-y5nk.onrender.com)** (free tier — first load takes ~50s to wake)
 
 > **Research use only — not a medical device.** This software has not been
 > clinically validated or reviewed by any regulatory authority. It must not be
