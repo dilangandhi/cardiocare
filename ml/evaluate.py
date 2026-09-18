@@ -24,9 +24,9 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT), str(ROOT / "backend")]
 
-from app.core import rules  # noqa: E402
-from app.core.signal_engine import analyse  # noqa: E402
-from app.core.taxonomy import KEYS, NUM_CLASSES  # noqa: E402
+from app.core import rules                        # noqa: E402
+from app.core.signal_engine import analyse        # noqa: E402
+from app.core.taxonomy import KEYS, NUM_CLASSES   # noqa: E402
 
 
 def confusion(true, pred, n=NUM_CLASSES):
@@ -76,6 +76,7 @@ def evaluate_cnn(data: Path, checkpoint: Path, size: int, batch: int):
     import torch
     from torch.utils.data import DataLoader
     from torchvision import datasets, transforms
+
     from train import build_model
 
     ckpt = torch.load(checkpoint, map_location="cpu")

@@ -31,8 +31,8 @@ from fastapi.staticfiles import StaticFiles
 
 from .core import digitize as dig
 from .core import fusion, taxonomy
-from .core.report import build_report
 from .core.signal_engine import analyse
+from .core.report import build_report
 
 logger = logging.getLogger("cardiocare")
 

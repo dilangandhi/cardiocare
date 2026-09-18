@@ -25,7 +25,7 @@ except ImportError:
     sys.exit("PyTorch is required to export. pip install torch torchvision")
 
 from app.core.taxonomy import KEYS, NUM_CLASSES  # noqa: E402
-from train import build_model  # noqa: E402
+from train import build_model                    # noqa: E402
 
 
 def final_linear(model, arch: str):
@@ -157,7 +157,7 @@ def main() -> int:
 
     print(f"\nwrote {out}  ({out.stat().st_size / 1e6:.1f} MB)")
     print(f"sha256 {sha[:16]}")
-    print("\nPlace it in models/ and restart the service to enable the CNN path.")
+    print(f"\nPlace it in models/ and restart the service to enable the CNN path.")
     return 0
 
 

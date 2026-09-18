@@ -247,16 +247,32 @@ Configuration: `CARDIOCARE_MODEL_DIR`, `CARDIOCARE_CONFIDENCE_FLOOR` (default
 
 ---
 
-## Deploying to Hugging Face Spaces
+## Deploying
 
-1. Create a Space with SDK **Docker**.
-2. Copy `deploy/huggingface/README.md` to the Space root as `README.md` — the
-   YAML frontmatter sets the port and runtime.
-3. Push the repository. The Dockerfile builds the sample gallery at image-build
-   time, so the demo works with no external calls.
+The container honours `$PORT` and defaults to 7860, so the same image runs
+anywhere. The runtime uses `onnxruntime` (~50 MB) rather than `torch` (~900 MB),
+which keeps the image small enough for free tiers.
 
-The runtime image uses `onnxruntime` (~50 MB) rather than `torch` (~900 MB),
-which keeps it inside the free tier.
+| Host | Free tier | Notes |
+|---|---|---|
+| **Render** | yes | `render.yaml` included. Sleeps after 15 min idle, cold start 30-60 s. |
+| **Google Cloud Run** | yes | 2M requests/month. Scales to zero, faster cold starts. Needs a billing account. |
+| **Fly.io** | limited | Good latency, small always-on allowance. |
+| **Hugging Face Spaces** | **no** | Docker Spaces require PRO ($9/mo); only Static Spaces are free. |
+
+### Render (simplest free option)
+
+1. Push this repository to GitHub.
+2. At [render.com](https://render.com): New → Web Service → connect the repo.
+3. Runtime **Docker**, instance type **Free**. Render reads `render.yaml`.
+4. Deploy. First build takes about 5 minutes.
+
+### Hugging Face Spaces (requires PRO)
+
+Create a Space with SDK **Docker**, copy `deploy/huggingface/README.md` to the
+Space root as `README.md` for its YAML frontmatter, then push. The Dockerfile
+builds the sample gallery at image-build time, so the demo needs no external
+calls at runtime.
 
 ---
 

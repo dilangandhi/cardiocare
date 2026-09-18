@@ -1,0 +1,18 @@
+# One-click deploy configuration for Render (https://render.com).
+#
+# Render's free web service tier runs Docker containers, sleeps after 15 minutes
+# of inactivity and cold-starts in roughly 30-60 seconds. That is acceptable for
+# a demo; it is not a production posture.
+services:
+  - type: web
+    name: cardiocare
+    runtime: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: CARDIOCARE_CONFIDENCE_FLOOR
+        value: "0.45"
+      - key: CARDIOCARE_CNN_WEIGHT
+        value: "0.60"

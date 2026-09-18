@@ -20,6 +20,7 @@ from dataclasses import asdict, dataclass, field
 import numpy as np
 from scipy import signal as sps
 
+
 # --------------------------------------------------------------------------
 # Filtering
 # --------------------------------------------------------------------------

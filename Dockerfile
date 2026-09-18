@@ -22,9 +22,15 @@ RUN python ml/make_samples.py
 ENV PYTHONPATH=/app/backend
 ENV PYTHONUNBUFFERED=1
 
-# 7860 is the port Hugging Face Spaces expects.
+# Hosts disagree about which port to use and how to tell the app: Hugging Face
+# Spaces expects 7860, Render and Google Cloud Run inject $PORT at runtime, and
+# Fly.io reads fly.toml. Defaulting to 7860 while honouring $PORT satisfies all
+# of them without a per-host Dockerfile.
+ENV PORT=7860
 EXPOSE 7860
-HEALTHCHECK --interval=30s --timeout=5s --start-period=20s \
-  CMD python -c "import urllib.request;urllib.request.urlopen('http://localhost:7860/api/health')"
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860", "--app-dir", "backend"]
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s \
+  CMD python -c "import os,urllib.request;urllib.request.urlopen(f\"http://localhost:{os.environ.get('PORT','7860')}/api/health\")"
+
+# Shell form so ${PORT} is expanded at container start rather than build time.
+CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-7860} --app-dir backend

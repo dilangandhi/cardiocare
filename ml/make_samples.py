@@ -9,20 +9,16 @@ For each of the 8 classes this writes:
 Run:  python ml/make_samples.py
 """
 from __future__ import annotations
-
-import json
-import sys
+import json, sys
 from pathlib import Path
-
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT), str(ROOT / "backend")]
 
-from app.core.render import PaperSpec, render  # noqa: E402
-from app.core.taxonomy import CLASSES  # noqa: E402
-
-from ml.synth import generate  # noqa: E402
+from ml.synth import generate                                  # noqa: E402
+from app.core.render import render, PaperSpec                  # noqa: E402
+from app.core.taxonomy import CLASSES                          # noqa: E402
 
 # 10 px/mm = 254 DPI. Below ~200 DPI, digitisation inflates measured QRS width;
 # see docs/METHODOLOGY.md.

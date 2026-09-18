@@ -18,14 +18,13 @@ import pytest
 ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(ROOT), str(ROOT / "backend")]
 
-from app.core import rules  # noqa: E402
-from app.core.digitize import digitize  # noqa: E402
-from app.core.fusion import ArrhythmiaModel, fuse  # noqa: E402
+from app.core import rules                                        # noqa: E402
+from app.core.digitize import digitize                           # noqa: E402
+from app.core.fusion import ArrhythmiaModel, fuse                 # noqa: E402
 from app.core.render import PaperSpec, add_photo_realism, render  # noqa: E402
 from app.core.signal_engine import analyse, detect_qrs, preprocess  # noqa: E402
-from app.core.taxonomy import CLASSES, KEYS, NUM_CLASSES, get  # noqa: E402
-
-from ml.synth import generate  # noqa: E402
+from app.core.taxonomy import CLASSES, KEYS, NUM_CLASSES, get     # noqa: E402
+from ml.synth import generate                                     # noqa: E402
 
 FS = 360.0
 SPEC = PaperSpec(px_per_mm=10.0)
@@ -309,6 +308,7 @@ def test_reference_gallery_round_trips_from_its_own_images():
     most visible failure the project can have.
     """
     import cv2
+
     from app.core.fusion import ArrhythmiaModel
 
     samples = ROOT / "samples"
@@ -420,6 +420,7 @@ def test_digitizer_handles_both_houghlinesp_return_shapes():
     caught by running the suite in one environment -- this test fakes the other.
     """
     import cv2
+
     from app.core import digitize as dig
 
     sig, _ = generate("normal", seed=7000, duration=10.0)
